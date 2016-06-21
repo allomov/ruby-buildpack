@@ -31,6 +31,13 @@ describe LanguagePack::RubySemverVersion do
           expect { subject }.to_not raise_error
         end
       end
+
+      context "gemfile with method called on global ruby constants" do
+        let(:gemfile) { File.join(fixtures, 'Gemfile_with_method_on_const') }
+        it "don't raise an error" do
+          expect { subject }.to_not raise_error
+        end
+      end
     end
 
     context "unordered manifest" do
